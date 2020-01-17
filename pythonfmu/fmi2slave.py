@@ -114,8 +114,22 @@ class Fmi2Slave(ABC):
         date_str = f"{t.year}-{t.month}-{t.day}T{t.hour}:{t.day}:{t.second}Z"
 
         return f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<fmiModelDescription fmiVersion="2.0" modelName="{Fmi2Slave.modelName}" guid="{Fmi2Slave.guid}"{desc_str}{auth_str}{lic_str}{ver_str}{cop_str} generationTool="PythonFMU" generationDateAndTime="{date_str}" variableNamingConvention="structured">
-\t<CoSimulation modelIdentifier="{Fmi2Slave.modelName}" needsExecutionTool="true" canHandleVariableCommunicationStepSize="true" canInterpolateInputs="false" canBeInstantiatedOnlyOncePerProcess="false" canGetAndSetFMUstate="false" canSerializeFMUstate="false" canNotUseMemoryManagementFunctions="true"/>
+<fmiModelDescription
+\tfmiVersion="2.0"
+\tmodelName="{Fmi2Slave.modelName}"
+\tguid="{Fmi2Slave.guid}"{desc_str}{auth_str}{lic_str}{ver_str}{cop_str}
+\tgenerationTool="PythonFMU"
+\tgenerationDateAndTime="{date_str}"
+\tvariableNamingConvention="structured">
+\t<CoSimulation
+\tmodelIdentifier="{Fmi2Slave.modelName}"
+\tneedsExecutionTool="true"
+\tcanHandleVariableCommunicationStepSize="true"
+\tcanInterpolateInputs="false"
+\tcanBeInstantiatedOnlyOncePerProcess="false"
+\tcanGetAndSetFMUstate="false"
+\tcanSerializeFMUstate="false"
+\tcanNotUseMemoryManagementFunctions="true"/>
 \t<ModelVariables>
 {var_str}
 \t</ModelVariables>
